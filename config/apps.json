@@ -1,0 +1,137 @@
+{
+    "categories": {
+        "dev": "Developpement",
+        "productivity": "Productivite",
+        "communication": "Communication",
+        "utils": "Utilitaires",
+        "media": "Media"
+    },
+    "apps": [
+        {
+            "id": "Git.Git",
+            "name": "Git",
+            "category": "dev",
+            "required": true,
+            "description": "Controle de version"
+        },
+        {
+            "id": "Microsoft.VisualStudioCode",
+            "name": "VSCode",
+            "category": "dev",
+            "required": true,
+            "description": "Editeur de code"
+        },
+        {
+            "id": "Docker.DockerDesktop",
+            "name": "Docker Desktop",
+            "category": "dev",
+            "required": false,
+            "description": "Conteneurisation"
+        },
+        {
+            "id": "CoreyButler.NVMforWindows",
+            "name": "NVM",
+            "category": "dev",
+            "required": false,
+            "description": "Node Version Manager"
+        },
+        {
+            "id": "Microsoft.WindowsTerminal",
+            "name": "Windows Terminal",
+            "category": "dev",
+            "required": true,
+            "description": "Terminal moderne"
+        },
+        {
+            "id": "dbeaver.dbeaver",
+            "name": "DBeaver",
+            "category": "dev",
+            "required": false,
+            "description": "Client base de donnees"
+        },
+        {
+            "id": "WinSCP.WinSCP",
+            "name": "WinSCP",
+            "category": "dev",
+            "required": false,
+            "description": "Client SFTP/SCP"
+        },
+        {
+            "id": "Postman.Postman",
+            "name": "Postman",
+            "category": "dev",
+            "required": false,
+            "description": "Test d'API"
+        },
+        {
+            "id": "Google.Chrome",
+            "name": "Chrome",
+            "category": "productivity",
+            "required": false,
+            "description": "Navigateur web"
+        },
+        {
+            "id": "Notion.Notion",
+            "name": "Notion",
+            "category": "productivity",
+            "required": false,
+            "description": "Notes et documentation"
+        },
+        {
+            "id": "Discord.Discord",
+            "name": "Discord",
+            "category": "communication",
+            "required": false,
+            "description": "Chat vocal et texte"
+        },
+        {
+            "id": "Tailscale.Tailscale",
+            "name": "Tailscale",
+            "category": "communication",
+            "required": false,
+            "description": "VPN mesh"
+        },
+        {
+            "id": "OpenVPNTechnologies.OpenVPNConnect",
+            "name": "OpenVPN Connect",
+            "category": "communication",
+            "required": false,
+            "description": "Client VPN"
+        },
+        {
+            "id": "7zip.7zip",
+            "name": "7-Zip",
+            "category": "utils",
+            "required": true,
+            "description": "Compression de fichiers"
+        },
+        {
+            "id": "Microsoft.PowerToys",
+            "name": "PowerToys",
+            "category": "utils",
+            "required": false,
+            "description": "Utilitaires Windows"
+        },
+        {
+            "id": "voidtools.Everything",
+            "name": "Everything",
+            "category": "utils",
+            "required": false,
+            "description": "Recherche de fichiers ultra-rapide"
+        },
+        {
+            "id": "VideoLAN.VLC",
+            "name": "VLC",
+            "category": "media",
+            "required": false,
+            "description": "Lecteur multimedia"
+        },
+        {
+            "id": "Spotify.Spotify",
+            "name": "Spotify",
+            "category": "media",
+            "required": false,
+            "description": "Streaming musical"
+        }
+    ]
+}

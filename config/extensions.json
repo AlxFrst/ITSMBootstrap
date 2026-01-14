@@ -1,0 +1,54 @@
+{
+    "extensions": [
+        {
+            "id": "ms-azuretools.vscode-docker",
+            "name": "Docker",
+            "description": "Support Docker et Compose"
+        },
+        {
+            "id": "bmewburn.vscode-intelephense-client",
+            "name": "PHP Intelephense",
+            "description": "Intellisense PHP"
+        },
+        {
+            "id": "eamodio.gitlens",
+            "name": "GitLens",
+            "description": "Integration Git avancee"
+        },
+        {
+            "id": "esbenp.prettier-vscode",
+            "name": "Prettier",
+            "description": "Formatage de code"
+        },
+        {
+            "id": "formulahendry.auto-close-tag",
+            "name": "Auto Close Tag",
+            "description": "Fermeture auto des balises HTML/XML"
+        },
+        {
+            "id": "PKief.material-icon-theme",
+            "name": "Material Icon Theme",
+            "description": "Icones Material Design"
+        },
+        {
+            "id": "ms-vscode-remote.remote-wsl",
+            "name": "WSL",
+            "description": "Integration WSL"
+        },
+        {
+            "id": "dbaeumer.vscode-eslint",
+            "name": "ESLint",
+            "description": "Linting JavaScript/TypeScript"
+        },
+        {
+            "id": "bradlc.vscode-tailwindcss",
+            "name": "Tailwind CSS IntelliSense",
+            "description": "Autocompletion Tailwind"
+        },
+        {
+            "id": "ms-vscode.powershell",
+            "name": "PowerShell",
+            "description": "Support PowerShell"
+        }
+    ]
+}

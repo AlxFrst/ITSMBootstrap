@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "path": "C:\\Dev",
+            "description": "Racine developpement"
+        },
+        {
+            "path": "C:\\Dev\\Projects",
+            "description": "Projets de code"
+        },
+        {
+            "path": "C:\\Dev\\Tools",
+            "description": "Outils et scripts"
+        },
+        {
+            "path": "C:\\Dev\\Docker",
+            "description": "Configurations Docker"
+        },
+        {
+            "path": "C:\\Dev\\Scripts",
+            "description": "Scripts PowerShell"
+        },
+        {
+            "path": "C:\\Dev\\Logs",
+            "description": "Fichiers de logs"
+        }
+    ]
+}
