@@ -80,25 +80,22 @@ if (-not $gitInstalled) {
 # Clonage du repository
 Write-Host "  * Telechargement du bootstrap..." -ForegroundColor Cyan
 
-try {
-    if (Test-Path $TempDir) {
-        Remove-Item -Recurse -Force $TempDir
-    }
-
-    git clone --depth 1 $RepoUrl $TempDir 2>&1 | Out-Null
-
-    if (-not (Test-Path (Join-Path $TempDir $MainScript))) {
-        throw "Le fichier $MainScript est introuvable dans le repository."
-    }
-
-    Write-Host "  * Telechargement termine !" -ForegroundColor Green
+if (Test-Path $TempDir) {
+    Remove-Item -Recurse -Force $TempDir
 }
-catch {
-    Write-Host "  X Erreur lors du telechargement: $_" -ForegroundColor Red
+
+# Git ecrit sur stderr meme en cas de succes, on ignore la sortie
+$null = git clone --depth 1 $RepoUrl $TempDir 2>&1
+
+if (-not (Test-Path (Join-Path $TempDir $MainScript))) {
+    Write-Host "  X Echec du telechargement. Verifiez votre connexion internet." -ForegroundColor Red
+    Write-Host "  X URL: $RepoUrl" -ForegroundColor Red
     Write-Host ""
     Read-Host "Appuyez sur Entree pour quitter"
     exit 1
 }
+
+Write-Host "  * Telechargement termine !" -ForegroundColor Green
 
 # Construction des arguments
 $arguments = @()
