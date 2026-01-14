@@ -84,12 +84,8 @@ if (Test-Path $TempDir) {
     Remove-Item -Recurse -Force $TempDir
 }
 
-# Git ecrit sur stderr meme en cas de succes
-# On desactive temporairement ErrorActionPreference car PowerShell traite stderr comme erreur
-$prevErrorAction = $ErrorActionPreference
-$ErrorActionPreference = "Continue"
-git clone --depth 1 $RepoUrl $TempDir 2>$null
-$ErrorActionPreference = $prevErrorAction
+# Utiliser cmd pour eviter que PowerShell traite stderr de git comme erreur
+cmd /c "git clone --depth 1 $RepoUrl `"$TempDir`" 2>nul"
 
 if (-not (Test-Path (Join-Path $TempDir $MainScript))) {
     Write-Host "  X Echec du telechargement. Verifiez votre connexion internet." -ForegroundColor Red
