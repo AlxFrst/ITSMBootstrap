@@ -117,7 +117,8 @@ Write-Host ""
 
 try {
     $mainScriptPath = Join-Path $TempDir $MainScript
-    & $mainScriptPath @arguments
+    # Bypass execution policy pour le script principal
+    powershell -ExecutionPolicy Bypass -NoProfile -File $mainScriptPath @arguments
 }
 catch {
     Write-Host ""
