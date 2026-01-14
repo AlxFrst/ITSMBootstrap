@@ -22,10 +22,8 @@ function Save-Progress {
     $State["_lastUpdated"] = (Get-Date).ToString("o")
     $State["_version"] = "1.0"
 
-    # Sauvegarder en JSON
+    # Sauvegarder en JSON (Out-Null pour eviter l'affichage)
     $State | ConvertTo-Json -Depth 10 | Out-File -FilePath $script:ProgressFile -Encoding UTF8
-
-    Write-Log "Progression sauvegardee" -Level DEBUG -NoConsole
 }
 
 function Get-Progress {
@@ -93,7 +91,6 @@ function Update-ProgressStep {
     }
 
     Save-Progress -State $State
-    return $State
 }
 
 function Update-ProgressApp {
@@ -123,7 +120,6 @@ function Update-ProgressApp {
     }
 
     Save-Progress -State $State
-    return $State
 }
 
 function Get-RemainingApps {

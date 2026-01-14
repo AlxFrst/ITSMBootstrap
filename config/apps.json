@@ -43,7 +43,7 @@
             "description": "Terminal moderne"
         },
         {
-            "id": "dbeaver.dbeaver",
+            "id": "DBeaverCommunity.DBeaverCE",
             "name": "DBeaver",
             "category": "dev",
             "required": false,
@@ -131,7 +131,7 @@
             "name": "Spotify",
             "category": "media",
             "required": false,
-            "description": "Streaming musical"
+            "description": "Streaming musical (install manuelle si admin)"
         }
     ]
 }

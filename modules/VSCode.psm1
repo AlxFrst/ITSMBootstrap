@@ -1,13 +1,37 @@
 # VSCode.psm1 - Module d'installation des extensions VSCode
 
 function Test-VSCodeInstalled {
+    # Rafraichir le PATH au cas ou VSCode vient d'etre installe
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+
     try {
         $null = Get-Command code -ErrorAction Stop
         return $true
     }
     catch {
+        # Essayer le chemin par defaut
+        $defaultPath = "$env:LOCALAPPDATA\Programs\Microsoft VS Code\bin\code.cmd"
+        if (Test-Path $defaultPath) {
+            return $true
+        }
         return $false
     }
+}
+
+function Get-VSCodeCommand {
+    # Chercher la commande code
+    $cmd = Get-Command code -ErrorAction SilentlyContinue
+    if ($cmd) {
+        return "code"
+    }
+
+    # Chemin par defaut
+    $defaultPath = "$env:LOCALAPPDATA\Programs\Microsoft VS Code\bin\code.cmd"
+    if (Test-Path $defaultPath) {
+        return $defaultPath
+    }
+
+    return $null
 }
 
 function Get-InstalledExtensions {
@@ -15,8 +39,13 @@ function Get-InstalledExtensions {
         return @()
     }
 
+    $codeCmd = Get-VSCodeCommand
+    if (-not $codeCmd) {
+        return @()
+    }
+
     try {
-        $extensions = code --list-extensions 2>$null
+        $extensions = & $codeCmd --list-extensions 2>$null
         return $extensions
     }
     catch {
@@ -56,6 +85,12 @@ function Install-VSCodeExtension {
         return @{ Success = $false; Skipped = $false }
     }
 
+    $codeCmd = Get-VSCodeCommand
+    if (-not $codeCmd) {
+        Write-Log "Commande VSCode introuvable" -Level WARN
+        return @{ Success = $false; Skipped = $false }
+    }
+
     # Vérifier si déjà installée
     if (Test-ExtensionInstalled -ExtensionId $ExtensionId) {
         Write-Log "$displayName deja installee" -Level DEBUG
@@ -65,7 +100,7 @@ function Install-VSCodeExtension {
     try {
         Write-Log "Installation de $displayName..." -Level INFO
 
-        $result = code --install-extension $ExtensionId --force 2>&1
+        $result = & $codeCmd --install-extension $ExtensionId --force 2>&1
 
         # Vérifier si l'installation a réussi
         if (Test-ExtensionInstalled -ExtensionId $ExtensionId) {
